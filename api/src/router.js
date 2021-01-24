@@ -40,3 +40,8 @@ const fileFilter = (request, file, callback) => {
   
     return response.status(201).json({success: true});
   });
+
+
+
+
+  module.exports = router;
