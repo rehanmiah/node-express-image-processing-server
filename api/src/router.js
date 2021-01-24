@@ -21,9 +21,6 @@ const fileFilter = (request, file, callback) => {
         callback(null,false,new Error('Wtong file type'));
         }
     else{
-        callbuck(null,True)
+        callback(null,True)
     }
 };
-
-  
-  
