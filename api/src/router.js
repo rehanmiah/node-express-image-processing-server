@@ -15,7 +15,7 @@ router=Router();
 module.exports = router;
 
 
-const = fileFilter(request, file, callback) => {
+const = fileFilter((request, file, callback) => {
     if (file.mimetype != 'image.png'){
         request.fileValidationError='Wrong file type';
         callback(null,false,Error)
@@ -23,4 +23,4 @@ const = fileFilter(request, file, callback) => {
     else{
         callbuck(null,True)
     }
-}
+});
