@@ -15,7 +15,6 @@ router=Router();
 module.exports = router;
 
 
-
 const fileFilter = (request, file, callback) => {
     if (file.mimetype !== 'image/png') {
       request.fileValidationError = 'Wrong file type';
@@ -25,4 +24,4 @@ const fileFilter = (request, file, callback) => {
     }
   };
   
-  const upload = multer(fileFilter: fileFilter(), storage: storage)
+  
