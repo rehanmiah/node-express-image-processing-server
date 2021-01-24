@@ -1,6 +1,7 @@
-const {Router} = require('express');
+const {Router, request} = require('express');
 const { diskStorage } = require('multer');
 const multer = require('multer');
+const { router } = require('../app');
 
 const filename = (request, file, callback) => {
     callback(null, file.originalname);
@@ -30,3 +31,9 @@ const fileFilter = (request, file, callback) => {
     fileFilter,
     storage,
   });
+
+  router.post('/upload', upload.single('photo'), (requests,response) => {
+if (request.fileValidationError){
+    response.status(400).json({error: request.fileValidationError})
+}
+  }); 
