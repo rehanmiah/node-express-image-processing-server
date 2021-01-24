@@ -2,7 +2,7 @@ const {Router} = require('express');
 const { diskStorage } = require('multer');
 const storage = require('multer');
 
-multer.diskStorage()
+storage.diskStorage()
 
 router=Router();
 module.exports = router;
