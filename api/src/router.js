@@ -15,14 +15,13 @@ router=Router();
 module.exports = router;
 
 
-
 const fileFilter = (request, file, callback) => {
-    if (file.mimetype !== 'image/png') {
-      request.fileValidationError = 'Wrong file type';
-      callback(null, false, new Error('Wrong file type'));
-    } else {
-      callback(null, true);
+    if (file.mimetype !== 'image.png'){
+        request.fileValidationError = 'Wrong file type';
+        callback(null,false,new Error('Wtong file type'));
+        }
+    else{
+        callback(null,True)
     }
-  };
-  
-  
+};
+
