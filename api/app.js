@@ -10,7 +10,4 @@ app.use('/*', (request, response) => {
 });
 
 
-
-inex.html;
-const path.resolve() 
 module.exports = app;
