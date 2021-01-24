@@ -12,6 +12,7 @@ app.use('/*', (request, response) => {
     response.sendFile(pathToIndex);
 });
 
-app.use(express.static(path.resolve(__dirname,'uploads')));
+app.use(express.static(path.resolve(__dirname, 'uploads')));
+
 
 module.exports = app;
