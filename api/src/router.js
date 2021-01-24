@@ -32,8 +32,11 @@ const fileFilter = (request, file, callback) => {
     storage,
   });
 
-  router.post('/upload', upload.single('photo'), (requests,response) => {
-if (request.fileValidationError)
-    return response.status(400).json({error: request.fileValidationError});
-  }); 
 
+
+
+  router.post('/upload', upload.single('photo'), (request, response) => {
+    if (request.fileValidationError) return response.status(400).json({error: request.fileValidationError});
+  
+
+  });
