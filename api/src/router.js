@@ -34,6 +34,6 @@ const fileFilter = (request, file, callback) => {
 
   router.post('/upload', upload.single('photo'), (requests,response) => {
 if (request.fileValidationError){
-    response.status(400).json({error: request.fileValidationError})
+    return response.status(400).json({error: request.fileValidationError});
 }
   }); 
