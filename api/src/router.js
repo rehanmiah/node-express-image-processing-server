@@ -25,4 +25,4 @@ const fileFilter = (request, file, callback) => {
     }
   };
   
-  
+  const upload = multer(fileFilter: fileFilter(), storage: storage)
