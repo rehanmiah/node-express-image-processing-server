@@ -2,7 +2,6 @@ const {Router} = require('express');
 const { diskStorage } = require('multer');
 const multer = require('multer');
 
-const filename;
 const storage = multer.diskStorage({
     destination: 'api/uploads/',
     filename,
