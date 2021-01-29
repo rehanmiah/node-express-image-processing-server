@@ -15,14 +15,13 @@ const imageProcessor = (filename =>  {
     const monochromeDestination = uploadPathResolver('monochrome-'+filename)
     
     return new Promise((resolve, reject) => {
-        if(isMainThread)
-        {}
-         else
-         {
-         reject(new Error('not on main thread'))
+        if (isMainThread) {
+
+        } else {
+         reject(new Error('not on main thread'));
          }
-         resolve()
-    } )
+         resolve();
+    });
 
 
  });
