@@ -4,7 +4,7 @@ const {worker, isMainThread} = require('worker_threads');
 const pathToResizeWorker = path.resolve('__dirname', 'resizeWorker.js');
 const pathToMonochromeWorker = path.resolve('__dirname', 'monochromeWorker.js');
 const uploadPathResolver = (filename) => {
-    path.resolve('__dirname', '../uploads', filname)
+    return path.resolve('__dirname', '../uploads', filname)
 } ;
 
 const imageProcessor = (filename =>  {
