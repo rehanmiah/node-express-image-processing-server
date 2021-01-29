@@ -18,7 +18,9 @@ const imageProcessor = (filename) =>  {
     return new Promise((resolve, reject) => {
         if (isMainThread) {
 
-            });
+
+            }
+        });
 
 
  };
