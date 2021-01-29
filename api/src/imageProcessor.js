@@ -4,16 +4,16 @@ const {worker, isMainThread} = require('worker_threads');
 
 const pathToResizeWorker = path.resolve('__dirname', 'resizeWorker.js');
 const pathToMonochromeWorker = path.resolve('__dirname', 'monochromeWorker.js');
-const uploadPathResolver(filename) => {
+const food = uploadPathResolver(filename => {
     path.resolve('__dirname', '../uploads', filname)
-} 
+} );
 
-const imageProcessor(filename) =>  {
+const image = imageProcessor(filename =>  {
     
     const sourePath = uploadPathResolver(filename)
-    const resizedDestination = uploadPathResolver('resized-'filename)
-    const monochromeDestination = uploadPathResolver('monovhrome-'filename)
-    
+    const resizedDestination = uploadPathResolver('resized-'(filename))
+    const monochromeDestination = uploadPathResolver('monochrome-'(filename))
+
     new Promise((resolve, reject) => {
         if (isMainThread)
         {}
@@ -25,5 +25,5 @@ const imageProcessor(filename) =>  {
     } )
 
 
- }
-export module.exports;
+ });
+//export module.exports;
