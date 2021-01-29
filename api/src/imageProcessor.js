@@ -14,16 +14,15 @@ const imageProcessor = (filename =>  {
     const resizedDestination = uploadPathResolver('resized'+filename)
     const monochromeDestination = uploadPathResolver('monochrome-'+filename)
     
-
     return new Promise((resolve, reject) => {
-        if (isMainThread) {
-          try {
-            const resizeWorker = new Worker(pathToResizeWorker, {
-              workerData: {
-                source: sourcePath,
-                destination: resizedDestination,
-              },
-            });
+        if (isMainThread)
+        {}
+         else
+         {
+         reject(new Error('not on main thread'))
+         }
+         resolve()
+    } );
 
 
  });
