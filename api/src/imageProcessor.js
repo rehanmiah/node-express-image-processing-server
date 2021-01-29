@@ -11,15 +11,15 @@ const uploadPathResolver = (filename => {
 const imageProcessor = (filename =>  {
     
     const sourePath = uploadPathResolver(filename)
-    const resizedDestination = uploadPathResolver('resized-'(filename))
-    const monochromeDestination = uploadPathResolver('monochrome-'(filename))
+    const resizedDestination = uploadPathResolver('resized'+filename)
+    const monochromeDestination = uploadPathResolver('monochrome-'+filename)
 
     return new Promise((resolve, reject) => {
         if (isMainThread)
         {}
          else
          {
-         reject(new Error('not on main thread'))
+         reject(new Error('not on main thread')
          }
          resolve()
     } )
