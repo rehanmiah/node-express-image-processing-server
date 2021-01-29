@@ -7,6 +7,12 @@ const photoPath=path.resolve(__dirname, '../../client/photo-viewer.html');
 
 const router = Router();
 
+const also = (request, response) => {
+  sendFile(photoPath)
+}
+
+router.get('photo-viewer')
+
 const filename = (request, file, callback) => {
   callback(null, file.originalname);
 };
