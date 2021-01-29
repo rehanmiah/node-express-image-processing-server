@@ -8,13 +8,13 @@ const uploadPathResolver = (filename => {
     path.resolve('__dirname', '../uploads', filname)
 } );
 
-const imageProcessor = (filename =>  {
+const imageProcessor = (filename) =>  {
     
     const sourePath = uploadPathResolver(filename)
     const resizedDestination = uploadPathResolver('resized'+filename)
     const monochromeDestination = uploadPathResolver('monochrome-'+filename)
     
-    return new Promise = ((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         if (isMainThread) {
 
         } else {
