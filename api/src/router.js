@@ -1,5 +1,8 @@
+import path
+const photoPath=path.resolve(__dirname, '../../client/photo-viewer.html')
 const {Router} = require('express');
 const multer = require('multer');
+const { dirname } = require('path');
 const path = require('path');
 const imageProcessor = require('./imageProcessor');
 
