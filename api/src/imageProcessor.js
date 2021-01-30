@@ -20,18 +20,18 @@ const imageProcessor = (filename =>  {
         {
 
     
-
             try {
                 const resizeWorker = new Worker(pathToResizeWorker, {
-                    workerData: {
-                      source: sourcePath,
-                      destination: resizedDestination,
+                  workerData: {
+                    source: sourcePath,
+                    destination: resizedDestination,
                   },
-                })
+                });
             }
-            catch{
+            catch(errror){
                 reject(error);
             }
+
         }
          else
          {
