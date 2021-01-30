@@ -28,6 +28,9 @@ const imageProcessor = (filename =>  {
                     destination: resizedDestination,
                   },
                 });
+            catch{
+                reject(error);
+            }
         }
          else
          {
