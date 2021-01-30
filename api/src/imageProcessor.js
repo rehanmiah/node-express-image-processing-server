@@ -50,14 +50,13 @@ const uploadPathResolver = (filename) => {
             resolve('resizeWorker finished processing');
           }
         });
-        */
-       resizeWorker.on('message', (message) => {
-        resizeWorkerFinished = true;
-        if (monochromeWorkerFinished) {
-
-        resolve('resizeWorker finished processing');
-        }
-    });
+        /*/
+                resizeWorker.on('message',(message) => {
+                    resizedWorkerFinished = true;
+                    if (monochromeWorkerFinished){}
+                    resolve('resizeWorker finished processing')
+                }
+                });
                 resizeWorker.on('error',(error) => {
                     reject(new Error(error.message))
                 });
