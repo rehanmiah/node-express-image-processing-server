@@ -24,7 +24,7 @@ const imageProcessor = (filename =>  {
             try {
                 resizeWorker.on('message',(message) => {
                     resizedWorkerFinished = true;
-                    resizedWorkerFinished.resolve()
+                    resolve('resizeWorker finished processing')
                 });
                 const resizeWorker = new Worker(pathToResizeWorker, {
                   workerData: {
