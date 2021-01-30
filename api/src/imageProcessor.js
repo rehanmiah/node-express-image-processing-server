@@ -42,7 +42,7 @@ const imageProcessor = (filename =>  {
                 resizeWorker.on('error',(error) => {
                     reject(new Error(error.message))
                 });
-                resizeWorker.on('exit'(code) => {
+                resizeWorker.on('exit',(code) => {
                     if(code!=0){
                         reject(new Error('Exited with status code ' + code));
                     } 
