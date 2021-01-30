@@ -28,38 +28,46 @@ const uploadPathResolver = (filename) => {
     
             try {
                 const resizeWorker = new Worker(pathToResizeWorker, {
-                  workerData: {
-                    source: sourcePath,
-                    destination: resizedDestination,
-                  },
-                });
-                const monochromeWorker= new Worker(pathToMonochromeWorker, {
-                    workerData:
-                    {source:sourcePath,
-                        destination:monochromeDestination,
+                    workerData: {
+                      source: sourcePath,
+                      destination: resizedDestination,
                     },
-                });
-
-                                  
-                resizeWorker.on('message',(message) => {
-                    resizedWorkerFinished = true;
-                    resolve('resizeWorker finished processing')
-                });
-                resizeWorker.on('error',(error) => {
-                    reject(new Error(error.message))
-                });
-                resizeWorker.on('exit',(code) => {
-                    if(code!=0){
-                        reject(new Error('Exited with status code ' + code));
-                    } 
-                });
-
-
-                monochromeWorker.on('message', (message) => {
+                  });
+          
+          
+                  const monochromeWorker = new Worker(pathToMonochromeWorker, {
+                    workerData: {
+                      source: sourcePath,
+                      destination: monochromeDestination,
+                    },
+                  });
+          
+                  resizeWorker.on('message', (message) => {
+                    resizeWorkerFinished = true;
+                    if (monochromeWorkerFinished) {
+                      resolve('resizeWorker finished processing');
+                    }
+                  });
+          
+                  resizeWorker.on('error', (error) => {
+                    reject(new Error(error.message));
+                  });
+          
+                  resizeWorker.on('exit', (code) => {
+                    if (code !== 0) {
+                      reject(new Error('Exited with status code ' + code));
+                    }
+                  });
+          
+                  monochromeWorker.on('message', (message) => {
                     monochromeWorkerFinished = true;
                     if (resizeWorkerFinished) {
                       resolve('monochromeWorker finished processing');
                     }
+                  });
+          
+                  monochromeWorker.on('error', (error) => {
+                    reject(new Error(error.message));
                   });
             }
             catch(errror){
