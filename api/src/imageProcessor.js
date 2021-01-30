@@ -1,4 +1,5 @@
 const path = require('path');
+const { reject } = require('ramda');
 const {Worker, isMainThread} = require('worker_threads');
 
 const pathToResizeWorker = path.resolve(__dirname, 'resizeWorker.js');
@@ -40,6 +41,11 @@ const imageProcessor = (filename =>  {
                 });
                 resizeWorker.on('error',(error) => {
                     reject(new Error(error.message))
+                });
+                resizeWorker.on('exit'(code) => {
+                    if(code!=0){
+                        reject(new Error('Exited with status code ' + code));
+                    } 
                 });
             }
             catch(errror){
