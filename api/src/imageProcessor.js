@@ -40,12 +40,6 @@ const uploadPathResolver = (filename) => {
                     },
                 });
 
-                monochromeWorker.on('message', (message) => {
-                    monochromeWorkerFinished = true;
-                    if (resizeWorkerFinished) {
-                      resolve('monochromeWorker finished processing');
-                    }
-                  });
                                   
                 resizeWorker.on('message',(message) => {
                     resizedWorkerFinished = true;
@@ -59,6 +53,14 @@ const uploadPathResolver = (filename) => {
                         reject(new Error('Exited with status code ' + code));
                     } 
                 });
+
+
+                monochromeWorker.on('message', (message) => {
+                    monochromeWorkerFinished = true;
+                    if (resizeWorkerFinished) {
+                      resolve('monochromeWorker finished processing');
+                    }
+                  });
             }
             catch(errror){
                 reject(error);
