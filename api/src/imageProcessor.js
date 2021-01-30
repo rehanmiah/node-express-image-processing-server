@@ -27,10 +27,9 @@ const imageProcessor = (filename =>  {
                     source: sourcePath,
                     destination: resizedDestination,
                   },
-                });
-            catch{
-                reject(error);
+                })
             }
+            catch{}
         }
          else
          {
