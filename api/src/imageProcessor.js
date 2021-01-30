@@ -37,7 +37,14 @@ const imageProcessor = (filename =>  {
                         destination:monochromeDestination,
                     },
                 });
-                
+
+                monochromeWorker.on('message', (message) => {
+                    monochromeWorkerFinished = true;
+                    if (resizeWorkerFinished) {
+                      resolve('monochromeWorker finished processing');
+                    }
+                  });
+                                  
                 resizeWorker.on('message',(message) => {
                     resizedWorkerFinished = true;
                     resolve('resizeWorker finished processing')
