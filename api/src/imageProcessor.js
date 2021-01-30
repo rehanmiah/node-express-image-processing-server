@@ -79,13 +79,18 @@ const uploadPathResolver = (filename) => {
                   });
 
 
-
+                  monochromeWorker.on('exit', (code) => {
+                    if(code!==0){
+                          reject(new Error('exited with status code '+ code))
+                      }
+                  });
+/*
                   monochromeWorker.on('exit', (code) => {
                     if (code !== 0) {
                       reject(new Error('Exited with status code ' + code));
                     }
                   });
-
+*/
             }
             catch(errror){
                 reject(error);
