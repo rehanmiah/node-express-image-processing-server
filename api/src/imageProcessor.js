@@ -22,10 +22,6 @@ const imageProcessor = (filename =>  {
 
     
             try {
-                resizeWorker.on('message',(message) => {
-                    resizedWorkerFinished = true;
-                    resolve('resizeWorker finished processing')
-                });
                 const resizeWorker = new Worker(pathToResizeWorker, {
                   workerData: {
                     source: sourcePath,
@@ -37,6 +33,10 @@ const imageProcessor = (filename =>  {
                     {source:sourcePath,
                         destination:monochromeDestination,
                     },
+                });
+                resizeWorker.on('message',(message) => {
+                    resizedWorkerFinished = true;
+                    resolve('resizeWorker finished processing')
                 });
             }
             catch(errror){
