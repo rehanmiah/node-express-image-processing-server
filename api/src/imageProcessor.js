@@ -17,11 +17,6 @@ const imageProcessor = (filename =>  {
     const monochromeDestination = uploadPathResolver('monochrome-'+filename)
 
     const resizeWorkerFinished = false;
-    const monochromeWorkerFinished =false;
-    monochromeWorkerFinished.on('message', (message) => {
-        monochromeWorkerFinished = true;
-        resolve('monochromeWorker finished processing')
-    });
     return new Promise((resolve, reject) => {
         if (isMainThread)
         {
