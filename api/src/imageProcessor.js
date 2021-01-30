@@ -19,13 +19,15 @@ const imageProcessor = (filename =>  {
         if (isMainThread)
         {
 
+    
+
             try{
                 const resizeWorker = new Worker(pathToResizeWorker,
                     {
                         workerData:{
                             source:sourecePath,
-                            destination:monochromeDestination
-                        }
+                            destination:monochromeDestination,
+                        },
                     });
             }
             catch{
