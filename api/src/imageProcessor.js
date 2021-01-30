@@ -53,8 +53,8 @@ const uploadPathResolver = (filename) => {
         */
        resizeWorker.on('message', (message) => {
         resizeWorkerFinished = true;
-        resolve('resizeWorker finished processing')
-                });
+        resolve('resizeWorker finished processing');
+    });
                 resizeWorker.on('error',(error) => {
                     reject(new Error(error.message))
                 });
