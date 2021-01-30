@@ -14,7 +14,7 @@ const uploadPathResolver = (filename) => {
 
 
 
-    const imageProcessor = ((filename) => {
+    const imageProcessor = (filename) => {
         const sourcePath = uploadPathResolver(filename);
         const resizedDestination = uploadPathResolver('resized-' + filename);
         const monochromeDestination = uploadPathResolver('monochrome-' + filename);
@@ -74,5 +74,5 @@ const uploadPathResolver = (filename) => {
     }) 
 
 
- });
+ };
 module.exports = imageProcessor;
