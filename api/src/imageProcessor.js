@@ -34,13 +34,13 @@ const uploadPathResolver = (filename) => {
                       destination: resizedDestination,
                     },
                   });
-                const monochromeWorker= new Worker(pathToMonochromeWorker, {
-                    workerData:
-                    {source:sourcePath,
-                        destination:monochromeDestination,
+   
+                  const monochromeWorker = new Worker(pathToMonochromeWorker, {
+                    workerData: {
+                      source: sourcePath,
+                      destination: monochromeDestination,
                     },
-                });
-
+                  });
                                   
                 resizeWorker.on('message',(message) => {
                     resizedWorkerFinished = true;
