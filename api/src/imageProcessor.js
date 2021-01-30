@@ -27,12 +27,13 @@ const uploadPathResolver = (filename) => {
 
     
             try {
+
                 const resizeWorker = new Worker(pathToResizeWorker, {
-                  workerData: {
-                    source: sourcePath,
-                    destination: resizedDestination,
-                  },
-                });
+                    workerData: {
+                      source: sourcePath,
+                      destination: resizedDestination,
+                    },
+                  });
                 const monochromeWorker= new Worker(pathToMonochromeWorker, {
                     workerData:
                     {source:sourcePath,
