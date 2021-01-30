@@ -38,6 +38,9 @@ const imageProcessor = (filename =>  {
                     resizedWorkerFinished = true;
                     resolve('resizeWorker finished processing')
                 });
+                resizeWorker.on('error',(error) => {
+                    reject(new Error(error.message))
+                });
             }
             catch(errror){
                 reject(error);
