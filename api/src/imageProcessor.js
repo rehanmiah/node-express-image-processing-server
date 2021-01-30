@@ -18,8 +18,9 @@ const imageProcessor = (filename =>  {
     return new Promise((resolve, reject) => {
         if (isMainThread)
         {
+
             try{
-                const resizeWorker = Worker(pathToResizeWorker,
+                const resizeWorker = new Worker(pathToResizeWorker,
                     {
                         workerData:{
                             source:sourecePath,
