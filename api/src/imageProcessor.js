@@ -27,6 +27,9 @@ const imageProcessor = (filename =>  {
                         }
                     });
             }
+            catch{
+                reject(error);
+            }
         }
          else
          {
