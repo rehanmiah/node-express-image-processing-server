@@ -38,7 +38,7 @@ const imageProcessor = (filename =>  {
                     },
                 });
 
-                monochromeWorkerFinished.on('message', (message) => {
+                monochromeWorker.on('message', (message) => {
                     monochromeWorkerFinished = true;
                     if(monochromeWorkerFinished==true){
                     resolve('monochromeWorker finished processing')
