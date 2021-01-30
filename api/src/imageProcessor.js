@@ -53,7 +53,7 @@ const uploadPathResolver = (filename) => {
         /*/
                 resizeWorker.on('message',(message) => {
                     resizedWorkerFinished = true;
-                    if (monochromeWorkerFinished){}
+                    if (monochromeWorkerFinished){
                     resolve('resizeWorker finished processing')
                 }
                 });
