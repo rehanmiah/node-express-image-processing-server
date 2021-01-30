@@ -78,11 +78,11 @@ const uploadPathResolver = (filename) => {
                       reject(new Error(error.message))
                   });
 
-                  monochromeWorker.on('exit',(code)={
-                      if (code!=0){
+                  monochromeWorker.on('exit',(code) => {
+                      if(code!=0){
                           reject(new Error('exited with status coe '+ code))
                       }
-                  })
+                  });
             }
             catch(errror){
                 reject(error);
