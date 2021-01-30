@@ -23,7 +23,7 @@ const imageProcessor = (filename =>  {
                     {
                         workerData:{
                             source:sourecePath,
-                            destination:monochromeDestination,
+                            destination:monochromeDestination
                         }
                     });
             }
