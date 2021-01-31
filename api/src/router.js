@@ -13,7 +13,7 @@ router.get('/photo-viewer', (requeast, response) => {
 });
 
 router.post(imageProcessor)
-imageProcessor(async => this.post();
+//imageProcessor(async => this.post();
 
 
 const filename = (request, file, callback) => {
